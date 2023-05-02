@@ -6,50 +6,116 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <keys_fr.h>
 #include <dt-bindings/zmk/bt.h>
 
+#include "../zmk-nodefree-config/helper.h"
+
+#define DEFAULT    0
+#define MEDIA      1 
+#define SHORT      2
+#define NAV        3
+
+ZMK_BEHAVIOR(th, hold_tap,
+    flavor = "hold-prefered";
+    tapping-term-ms = <130>;
+    quick-tap-ms = <125>;
+    global-quick-tap;
+    bindings = <&kp>, <&kp>;
+)
+
+
+ZMK_LAYER(default_layer,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+          &kp TAB        &kp FR_Q      &kp FR_W        &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y       &kp FR_W       &kp ESC
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &hrm LSHFT      &kp FR_Y       &kp I         &kp E         &kp A    &mt FR_DOT FR_GRAVE    &kp D         &kp S         &kp T         &kp N         &kp B        &kp LGUI
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &kp LCTRL       &kp J   &mt FR_SEMI FR_COLON &mt FR_COMMA FR_QMARK &kp K &mt FR_FSLH FR_TILDE &kp FR_W   &kp F         &kp L         &kp P         &kp V        &kp LALT
+     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                                      &kp DEL   &lt MEDIA BSPC &lt SHORT SPACE      &kp RET       &mo NAV       &kp F12
+     //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
+
+ ZMK_LAYER(media_layer,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+              ___            ___       &kp K_PREV    &kp K_PP      &kp K_NEXT       ___               ___        &kp FR_N7     &kp FR_N8     &kp FR_N9    &kp FR_MINUS     ___
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+              ___            ___      &kp K_VOL_UP   &kp K_MUTE  &kp K_VOL_DN       ___               ___        &kp FR_N4     &kp FR_N5     &kp FR_N6    &kp FR_PLUS      ___
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+              ___            ___          ___           ___           ___           ___               ___        &kp FR_N1     &kp FR_N2     &kp FR_N3    &kp FR_N0        ___
+     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                                        ___           ___           ___               ___           ___           ___   
+     //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
+  ZMK_LAYER(shortcut_layer,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+              ___        &kp LA(F4)    &kp LS(F3)     &kp F3          &kp F2        ___         &kp FR_PERCENT &mt FR_LPAR FR_LT &mt EQUAL PLUS &mt FR_RPAR FR_GT &mt FR_BSLH FR_PIPE ___
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+              ___       &kp LC(FR_A)   &kp LC(S)  &kp FR_E_ACCENT   &kp LC(F)       ___         &mt FR_DIAE FR_CARET &mt FR_LBKT FR_LBRC &mt FR_MINUS FR_UNDER &mt FR_RBKT FR_RBRC &kp FR_SQT FR_DQT ___
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+              ___        &kp LC(Z)     &kp LC(X)     &kp LC(C)      &kp LC(V)       ___           &kp FR_CCED  &mt FR_HASH FR_EXCL &mt FR_STAR FR_AT &mt FR_AMPS FR_DLLR ___ ___
+     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                                        ___           ___           ___               ___           ___           ___   
+     //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
+ 
+ ZMK_LAYER(navigation_layer,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+              ___            ___          ___           ___           ___           ___               ___         &kp HOME     &kp PG_DN     &kp PG_UP      &kp END         ___   
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+              ___            ___          ___           ___           ___           ___               ___         &kp LEFT     &kp DOWN       &kp UP       &kp RIGHT        ___   
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+              ___            ___          ___           ___           ___           ___               ___           ___           ___           ___           ___           ___   
+     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                                        ___           ___           ___               ___           ___           ___   
+     //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
 / {
-        keymap {
+     keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+// |  TAB |  A  |  H  |  O  |  U  |  X  |   |  G  |  C   |  M  |  R  |  R  | ESC  |
+// | SHFT |  Y  |  I  |  E  |  Q  |  .  |   |  D  |  S   |  T  |  N  |  B  | LGUI |
+// | CTRL |  J  |  ;  |  ,  |  K  |  /  |   |  W  |  F   |  L  |  P  |  V  | LALT |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+   &kp TAB   &kp Q &kp H     &kp O     &kp U &kp X         &kp G &kp C  &kp M &kp R &kp Z &kp ESC
+   &kp LSHFT &kp Y &kp I     &kp E     &kp A &kp DOT       &kp D &kp S  &kp T &kp N &kp B &kp LGUI
+   &kp LCTRL &kp J &kp SEMI  &kp COMMA &kp K &kp FSLH      &kp W &kp F  &kp L &kp P &kp V &kp LALT
+                  &kp DEL &lt MEDIA BSPC &lt SHORTCUT SPACE   &kp ENTER &mo NAVIGATION  &kp F12
                         >;
                 };
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+                media_layer {
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &kp TAB   &kp Q &kp K_PREVIOUS     &kp K_PLAY_PAUSE &kp K_NEXT        &kp X         &kp G   &kp FR_N7  &kp FR_N8 &kp FR_N9 &kp Z            &kp ESC
+   &kp LSHFT &kp Y &kp K_VOLUME_UP    &kp K_MUTE       &kp K_VOLUME_DOWN &kp DOT       &kp D   &kp FR_N4  &kp FR_N5 &kp FR_N6 &kp B            &kp LGUI
+   &kp LCTRL &kp J &kp SEMI  &kp COMMA &kp K &kp FSLH                                  &kp DOT &kp FR_N1  &kp FR_N2 &kp FR_N3 &kp FR_N0 &kp LALT
+                  &kp DEL &kp BSPC &kp SPACE   &kp ENTER &mo MEDIA  &kp F12
                         >;
                 };
 
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+                shortcut_layer {
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &kp TAB   &kp LA(F4) &kp LS(F3) &kp F3          &kp F2    &kp X         &kp G &kp C  &kp M &kp R &kp Z &kp ESC
+   &kp LSHFT &kp LC(A)  &kp LC(S)  &kp FR_E_ACCENT &kp LC(F) &kp DOT       &kp D &kp S  &kp T &kp N &kp B &kp LGUI
+   &kp LCTRL &kp LC(Z)  &kp LC(X)  &kp LC(C)       &kp LC(V) &kp FSLH      &kp W &kp F  &kp L &kp P &kp V &kp LALT
+                  &kp DEL &kp BSPC &kp SPACE   &kp ENTER &mo MEDIA  &kp F12
+                        >;
+                };
+
+                navigation_layer {
+                        bindings = <
+   &kp TAB   &kp Q &kp H     &kp O     &kp U &kp X         &kp G &kp C  &kp M &kp R &kp Z &kp ESC
+   &kp LSHFT &kp Y &kp I     &kp E     &kp A &kp DOT       &kp D &kp S  &kp T &kp N &kp B &kp LGUI
+   &kp LCTRL &kp J &kp SEMI  &kp COMMA &kp K &kp FSLH      &kp W &kp F  &kp L &kp P &kp V &kp LALT
+                  &kp DEL &kp BSPC &kp SPACE   &kp ENTER &mo MEDIA  &kp F12
                         >;
                 };
         };
