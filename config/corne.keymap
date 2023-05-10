@@ -6,9 +6,9 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <keys_fr.h>
 #include <dt-bindings/zmk/bt.h>
 
+#include "keys_fr.h"
 #include "../zmk-nodefree-config/helper.h"
 
 #define DEFAULT    0
@@ -27,7 +27,7 @@ ZMK_BEHAVIOR(th, hold_tap,
 
 ZMK_LAYER(default_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-          &kp TAB        &kp FR_Q      &kp FR_W        &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y       &kp FR_W       &kp ESC
+            &kp TAB       &kp FR_Q     &kp FR_W        &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y       &kp FR_W       &kp ESC
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &hrm LSHFT      &kp FR_Y       &kp I         &kp E         &kp A    &mt FR_DOT FR_GRAVE    &kp D         &kp S         &kp T         &kp N         &kp B        &kp LGUI
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
