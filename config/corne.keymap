@@ -25,14 +25,12 @@ ZMK_BEHAVIOR(th, hold_tap,
 )
 
 #define AS(keycode) &as LS(keycode) keycode
-ZMK_BEHAVIOR(as, auto_shift,
-    compatible = "zmk,behavior-hold-tap";
-    label = "AUTO_SHIFT";
-    #binding-cells = <2>;
+ZMK_BEHAVIOR(as, hold_tap,
+    flavor = "tap-preferred";
     tapping-term-ms = <130>;
     quick-tap-ms = <0>;
-    flavor = "tap-preferred";
     bindings = <&kp>, <&kp>;
+    label = "AUTO_SHIFT";
 )
 
 ZMK_LAYER(default_layer,
