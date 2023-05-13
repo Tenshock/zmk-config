@@ -16,6 +16,8 @@
 #define SHORT      2
 #define NAV        3
 
+#define ___ &trans
+
 ZMK_BEHAVIOR(th, hold_tap,
     flavor = "hold-prefered";
     tapping-term-ms = <130>;
