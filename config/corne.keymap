@@ -26,22 +26,13 @@ ZMK_BEHAVIOR(th, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 
-#define AS(keycode) &as LS(keycode) keycode
-ZMK_BEHAVIOR(as, hold_tap,
-    flavor = "tap-preferred";
-    tapping-term-ms = <130>;
-    quick-tap-ms = <0>;
-    bindings = <&kp>, <&kp>;
-    label = "AUTO_SHIFT";
-)
-
 ZMK_LAYER(default_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-            &kp TAB      AS(FR_Q)        AS(H)         AS(O)        AS(U)          AS(X)             AS(G)         AS(C)         AS(FR_M)      AS(R)         AS(FR_Z)     &kp ESC
+            &kp TAB      &kp FR_Q        &kp H         &kp O        &kp U          &kp X             &kp G         &kp C         &kp FR_M      &kp R         &kp FR_Z     &kp ESC
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-           &kp LSHFT      AS(Y)          AS(I)         AS(E)        AS(FR_A)    &mt FR_GRAVE FR_DOT  AS(D)         AS(S)         AS(T)         AS(N)          AS(B)       &kp LGUI
+           &kp LSHFT      &kp Y          &kp I         &kp E        &kp FR_A    &mt FR_GRAVE FR_DOT  &kp D         &kp S         &kp T         &kp N          &kp B       &kp LGUI
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-           &kp LCTRL      AS(J)   &mt FR_COLON FR_SEMI &mt FR_QMARK FR_COMMA AS(K) &mt FR_TILDE FR_FSLH AS(FR_W)   AS(F)         AS(L)         AS(P)          AS(V)       &kp LALT
+           &kp LCTRL      &kp J   &mt FR_COLON FR_SEMI &mt FR_QMARK FR_COMMA &kp K &mt FR_TILDE FR_FSLH &kp FR_W   &kp F         &kp L         &kp P          &kp V       &kp LALT
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                                       &kp DEL   &lt MEDIA BSPC &lt SHORT SPACE      &kp RET       &mo NAV       &kp F12
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
