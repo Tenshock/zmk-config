@@ -30,9 +30,9 @@ ZMK_LAYER(default_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
             &kp TAB      &kp FR_Q        &kp H         &kp O        &kp U          &kp X             &kp G         &kp C         &kp FR_M      &kp R         &kp FR_Z     &kp ESC
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-           &kp LSHFT      &kp Y          &kp I         &kp E        &kp FR_A    &mt FR_GRAVE FR_DOT  &kp D         &kp S         &kp T         &kp N          &kp B       &kp LGUI
+              ___       &mt LGUI Y  &mt LCTRL I  &mt LALT E  &mt LSHFT FR_A &mt FR_GRAVE FR_DOT       &kp D     &mt LSHFT S   &mt LALT T    &mt LCTRL N   &mt LGUI B        ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-           &kp LCTRL      &kp J   &mt FR_COLON FR_SEMI &mt FR_QMARK FR_COMMA &kp K &mt FR_TILDE FR_FSLH &kp FR_W   &kp F         &kp L         &kp P          &kp V       &kp LALT
+              ___      &kp J &mt FR_COLON FR_SEMI &mt FR_QMARK FR_COMMA &kp K &mt FR_TILDE FR_FSLH  &kp FR_W       &kp F         &kp L         &kp P          &kp V         ___
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                                       &kp DEL   &lt MEDIA BSPC &lt SHORT SPACE     &kp ENTER      &mo NAV         ___
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
