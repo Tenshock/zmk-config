@@ -18,14 +18,6 @@
 
 #define ___ &trans
 
-ZMK_BEHAVIOR(th, hold_tap,
-    flavor = "hold-preferred";
-    tapping-term-ms = <130>;
-    quick-tap-ms = <125>;
-    global-quick-tap;
-    bindings = <&kp>, <&kp>;
-)
-
 ZMK_LAYER(default_layer,
 // ╭───────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────╮
       &kp TAB       &kp FR_Q         &kp H           &kp O          &kp U            &kp X               &kp G           &kp C         &kp FR_M          &kp R         &kp FR_Z       &kp ESC
