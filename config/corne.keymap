@@ -19,13 +19,27 @@
 
 #define ___ &trans
 
+#define DEF_MORPH(NAME, MODS, CODE, MOD_CODE) \ 
+     ZMK_BEHAVIOR(NAME, mod_morph, \
+               bindings = <&kp CODE>, <&kp MOD_CODE>; \
+               mods = <(MODS)>; \
+     )
+
+#define DEF_LSHFT_MORPH(NAME, CODE, MOD_CODE) \ 
+    DEF_MORPH(NAME, MOD_LSFT, CODE, MOD_CODE)
+
+DEF_LSHFT_MORPH(dot_comma, FR_DOT, FR_COMMA)
+DEF_LSHFT_MORPH(colon_semi, FR_COLON, FR_SEMI)
+DEF_LSHFT_MORPH(qmark_excl, FR_QMARK, FR_EXCL)
+DEF_LSHFT_MORPH(dash_under, FR_MINUS, FR_UNDER)
+
 ZMK_LAYER(default,
 // ╭─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────╮   ╭─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────╮
 ___     &kp FR_Q            &kp H             &kp O            &kp U              &kp X                 &kp G             &kp C           &kp FR_M            &kp R             &kp V       ___
 // ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-___    &mt LGUI Y        &mt LCTRL I       &mt LALT E      &mt LSHFT FR_A  &mt FR_GRAVE FR_DOT          &kp D          &mt LSHFT S       &mt LALT T        &mt LCTRL N       &mt LGUI B     ___
+___    &mt LGUI Y        &mt LCTRL I       &mt LALT E      &mt LSHFT FR_A      &dot_comma               &kp D          &mt LSHFT S       &mt LALT T        &mt LCTRL N       &mt LGUI B     ___
 // ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-___       &kp J   &mt FR_COLON FR_SEMI &mt FR_QMARK FR_COMMA   &kp K      &mt FR_TILDE FR_FSLH        &kp FR_W            &kp F             &kp L             &kp P           &kp FR_Z      ___
+___       &kp J          &qmark_excl       &dash_under         &kp K           &colon_semi            &kp FR_W            &kp F             &kp L             &kp P           &kp FR_Z      ___
 // ╰─────────────────┴─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────────┼─────────────────┼─────────────────┼─────────────────┴─────────────────╯
                                              &kp BSPC      &lt MEDIA SPACE    &lt SHORT DEL           &kp ENTER        &lt NAV TAB         &kp ESC
 //                                     ╰─────────────────┴─────────────────┴─────────────────╯   ╰─────────────────┴─────────────────┴─────────────────╯
