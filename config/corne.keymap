@@ -10,23 +10,13 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #include "keys_fr.h"
+#include "helpers.h"
 #include "../zmk-nodefree-config/helper.h"
 
 #define DEFAULT    0
 #define MEDIA      1
 #define SHORT      2
 #define NAV        3
-
-#define ___ &trans
-
-#define DEF_MORPH(NAME, MODS, CODE, MOD_CODE) \ 
-     ZMK_BEHAVIOR(NAME, mod_morph, \
-               bindings = <&kp CODE>, <&kp MOD_CODE>; \
-               mods = <(MODS)>; \
-     )
-
-#define DEF_LSHFT_MORPH(NAME, CODE, MOD_CODE) \ 
-    DEF_MORPH(NAME, MOD_LSFT, CODE, MOD_CODE)
 
 DEF_LSHFT_MORPH(dot_comma, FR_DOT, FR_COMMA)
 DEF_LSHFT_MORPH(colon_semi, FR_COLON, FR_SEMI)
