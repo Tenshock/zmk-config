@@ -62,7 +62,7 @@ DEF_LSHFT_KP_MORPH(rbkt_gt, FR_RBKT, FR_GT)
 DEF_LSHFT_KP_MORPH(caret_diae, FR_CARET, FR_DIAE)
 
 DEF_LSHFT_KP_MORPH(eacute_cced, FR_E_ACCENT, FR_CCED)
-DEF_LSHFT_KP_MORPH(dollar_euro, FR_DLLR, FR_UNDER)
+DEF_LSHFT_KP_MORPH(dollar_euro, FR_DLLR, FR_EURO)
 
 ZMK_LAYER(symbols,
 // ╭─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────╮   ╭────────&────────┬──────(───{──────┬──────/───\──────┬──────)───}──────┬────────|────────╮
