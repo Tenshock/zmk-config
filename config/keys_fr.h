@@ -113,6 +113,10 @@
 /* Keyboard € (euro) */
 #define FR_EURO (RA(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_E)))
 
+/* Keyboard µ (greek m) */
+#define FR_GREEK_M (LS(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_NON_US_HASH_AND_TILDE)))
+#define FR_GK_M (FR_GREEK_M)
+
 /* Keyboard 0 and ) (Right Parenthesis) */
 #define FR_NUMBER_0 (LS(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_0_AND_RIGHT_PARENTHESIS)))
 #define FR_N0 (FR_NUMBER_0)
