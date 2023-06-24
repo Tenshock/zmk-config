@@ -18,10 +18,13 @@
 #define SHORT      2
 #define NAV        3
 
-DEF_LSHFT_MORPH(dot_comma, FR_DOT, FR_COMMA)
-DEF_LSHFT_MORPH(colon_semi, FR_COLON, FR_SEMI)
-DEF_LSHFT_MORPH(qmark_excl, FR_QMARK, FR_EXCL)
-DEF_LSHFT_MORPH(under_dash, FR_UNDER, FR_MINUS)
+DEF_LSHFT_KP_MORPH(dot_comma, FR_DOT, FR_COMMA)
+
+DEF_LSHFT_KP_MORPH(colon_semi, FR_COLON, FR_SEMI)
+DEF_LSHFT_KP_MORPH(qmark_excl, FR_QMARK, FR_EXCL)
+DEF_LSHFT_KP_MORPH(under_dash, FR_UNDER, FR_MINUS)
+
+DEF_LT_DISABLED_ON_SFT(media_bspc_hold, MEDIA, BSPC)
 
 ZMK_LAYER(default,
 // ╭─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────╮   ╭─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────╮
@@ -31,7 +34,7 @@ ___    &lhr LGUI Y      &lhr LCTRL I       &lhr LALT E     &lhr LSHFT FR_A      
 // ├─────────────────┼──────?───!──────┼──────_───-──────┼─────────────────┼──────:───;──────┤   ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
 ___       &kp J          &qmark_excl       &under_dash          &kp K          &colon_semi            &kp FR_W            &kp F             &kp L             &kp P           &kp FR_Z      ___
 // ╰─────────────────┴─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────────┼─────────────────┼─────────────────┼─────────────────┴─────────────────╯
-                                             &kp DEL        &lt MEDIA BSPC   &lt SHORT SPACE        &lt NAV ENTER        &kp TAB           &kp ESC
+                                             &kp DEL       &media_bspc_hold  &lt SHORT SPACE        &lt NAV ENTER        &kp TAB           &kp ESC
 //                                     ╰─────────────────┴─────────────────┴─────────────────╯   ╰─────────────────┴─────────────────┴─────────────────╯
 )
 
@@ -47,19 +50,19 @@ ___   &out OUT_TOG      &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2       &
 //                                     ╰─────────────────┴─────────────────┴─────────────────╯   ╰─────────────────┴─────────────────┴─────────────────╯
 )
 
-DEF_LSHFT_MORPH(lpar_lbrc, FR_LPAR, FR_LBRC)
-DEF_LSHFT_MORPH(fslh_bslh, FR_FSLH, FR_BSLH)
-DEF_LSHFT_MORPH(rpar_rbrc, FR_RPAR, FR_RBRC)
-DEF_LSHFT_MORPH(pipe_prc, FR_PIPE, FR_PRCNT)
+DEF_LSHFT_KP_MORPH(lpar_lbrc, FR_LPAR, FR_LBRC)
+DEF_LSHFT_KP_MORPH(fslh_bslh, FR_FSLH, FR_BSLH)
+DEF_LSHFT_KP_MORPH(rpar_rbrc, FR_RPAR, FR_RBRC)
+DEF_LSHFT_KP_MORPH(pipe_prc, FR_PIPE, FR_PRCNT)
 
-DEF_LSHFT_MORPH(grave_tilde, FR_GRAVE, FR_TILDE)
-DEF_LSHFT_MORPH(lbkt_lt, FR_LBKT, FR_LT)
-DEF_LSHFT_MORPH(sqt_dqt, FR_SQT, FR_DQT)
-DEF_LSHFT_MORPH(rbkt_gt, FR_RBKT, FR_GT)
-DEF_LSHFT_MORPH(caret_diae, FR_CARET, FR_DIAE)
+DEF_LSHFT_KP_MORPH(grave_tilde, FR_GRAVE, FR_TILDE)
+DEF_LSHFT_KP_MORPH(lbkt_lt, FR_LBKT, FR_LT)
+DEF_LSHFT_KP_MORPH(sqt_dqt, FR_SQT, FR_DQT)
+DEF_LSHFT_KP_MORPH(rbkt_gt, FR_RBKT, FR_GT)
+DEF_LSHFT_KP_MORPH(caret_diae, FR_CARET, FR_DIAE)
 
-DEF_LSHFT_MORPH(eacute_cced, FR_E_ACCENT, FR_CCED)
-DEF_LSHFT_MORPH(dollar_euro, FR_DLLR, FR_UNDER)
+DEF_LSHFT_KP_MORPH(eacute_cced, FR_E_ACCENT, FR_CCED)
+DEF_LSHFT_KP_MORPH(dollar_euro, FR_DLLR, FR_UNDER)
 
   ZMK_LAYER(shortcut,
 // ╭─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────╮   ╭────────&────────┬──────(───{──────┬──────/───\──────┬──────)───}──────┬──────|───%──────╮
