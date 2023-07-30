@@ -13,6 +13,10 @@
 #include "helpers.h"
 #include "../zmk-nodefree-config/helper.h"
 
+&nice_view_spi {
+    cs-gpios = <&pro_micro 9 GPIO_ACTIVE_HIGH>;
+};
+
 #define DEFAULT 0
 #define NUM_SYM 1
 #define MED_NAV 2
